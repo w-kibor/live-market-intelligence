@@ -14,14 +14,15 @@ API_URL = "https://api.coingecko.com/api/v3/simple/price"
 COINS = "bitcoin,ethereum,cardano,solana,polkadot"
 VS_CURRENCIES = "usd"
 DB_HOST = os.getenv("DB_HOST", "127.0.0.1")
+DB_PORT = os.getenv("DB_PORT", "5433")
 DB_NAME = os.getenv("DB_NAME", "market_data")
 DB_USER = os.getenv("DB_USER", "user")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
 
 def get_db_connection():
-    print(f"Connecting to {DB_HOST} as {DB_USER} with password: {DB_PASSWORD}")
     conn = psycopg2.connect(
         host=DB_HOST,
+        port=DB_PORT,
         database=DB_NAME,
         user=DB_USER,
         password=DB_PASSWORD

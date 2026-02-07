@@ -19,6 +19,7 @@ DB_USER = os.getenv("DB_USER", "user")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
 
 def get_db_connection():
+    print(f"Connecting to {DB_HOST} as {DB_USER} with password: {DB_PASSWORD}")
     conn = psycopg2.connect(
         host=DB_HOST,
         database=DB_NAME,
